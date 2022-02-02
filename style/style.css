@@ -1,260 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Oswald:wght@300&display=swap');
 
-
-@media (max-width: 480px) {
-    * {
-        Margin:0;
-        padding:0;
-     }
-    
-     /*Titulo*/
-     h1 {
-         padding: 20px 100px;
-         text-align: center;
-         background-color: white    ;
-         color: #df5d2a   ;
-         font-family: 'Montserrat', sans-serif;
-         font-size: 70px;
-        }
-    
-    .imgLogoPrincipal {
-        max-width: 700px;
-        max-height: 1000px;
-        display: block;
-        margin: 0 auto; 
-    }
-    
-    .imgBanner{
-    
-        margin: 0px;
-        border: 0px;
-    }
-    
-     header{
-         background-color: #36373c   ;
-         
-     }
-    
-     ol {
-        list-style-type: none;
-       }
-    ul {
-        list-style-type: none;
-        
-       }
-    
-    ul li {
-        display: inline-block;
-        margin-left: 50px;
-        margin-right: 50px;  
-       }
-    
-    nav {
-        text-align: center;
-        padding: 10px 10px;
-        font-size: 20px;
-        background-color: #fab82d   ;
-        }
-    
-    a {
-        text-decoration:none;
-        color:#36373c     ;
-        
-        
-    }
-    
-    
-    .fotosCarousel {
-        max-width: 25%;
-        border: 0px; 
-        float: left;  
-        margin-bottom: 50px;
-    }
-    
-    body{
-        background-color: #e2e2e2  ;
-        font-family: 'Oswald', sans-serif;
-    } 
-    
-    /* Otras Secciones */
-    
-    .seccion {
-        margin: 50px 200px;
-        background-color: #f8f6f3 ;
-        padding: 30px 30px;
-        display: flex;
-        flex: 1;
-    
-    }
-    section{
-        margin: 50px 200px;
-        padding: 30px 30px;
-    }
-    
-    .sectionUnido{
-            margin: 0px 85px;
-    
-        
-    }
-    
-    h2 {
-        text-align:left;
-        color: #df5d2a   ;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 40px;
-           }
-    
-    p {
-        text-align: left;
-    }
-    
-    .fotosBlock {
-        display: block;
-        margin-bottom: 10px;
-        margin-right: 10px;
-    }
-    
-    div {
-        flex: 1;
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-    
-    .imgCentrada{
-        display: block;
-        margin: 0 auto; 
-        margin: 10px auto 20px;
-    
-    }
-    
-    .icono{
-        max-width: 70px;
-        max-height: 70px;
-        display: block;
-        margin: 0 auto; 
-        margin: 10px auto 20px;
-    
-        
-    }
-    .icono2{
-        max-width: 30px;
-        max-height: 30px;
-        display: block;
-        margin: 0 auto; 
-        
-    }
-    
-    .center{
-        text-align: center;
-    }
-    
-    button {
-        -webkit-border-radius: 28;
-      -moz-border-radius: 28;
-      border-radius: 28px;
-      border: 2px solid #fab82d ;
-      color: #fab82d;
-      background: transparent;
-      padding: 16px 32px;
-          text-align: center;
-      margin: 10px;
-    }
-    button:hover {
-        background-color: #fab82d;
-        color: white;
-        cursor: pointer;
-    }
-    
-    .button2{
-        -webkit-border-radius: 28;
-      -moz-border-radius: 28;
-      border-radius: 28px;
-      border: 2px solid #fab82d ;
-      color: white;
-      background-color: #fab82d;
-      padding: 16px 32px;
-          text-align: center;
-    }
-    
-    /*Footer*/
-    
-    footer {
-        background-color: #1a120e ;
-        color: #f8f6f3;
-    }
-    
-    .sectionFooter {
-        margin: 0px 100px 0px 100px;
-        background-color: #1a120e ;
-        padding: 15px 15px;
-        display: flex;
-        flex: 1;
-    }
-    
-    h6 {
-        text-align:left;
-        color: #f8f6f3   ;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 15px;
-    }
-    
-    .enlaceFooter{
-        text-decoration:none;
-        color:#b2391b     ;
-        font-size: 13px;
-        
-    }
-    
-    .textoFooter {
-        color:#b2391b     ;
-        font-size: 13px;
-        text-align: left;
-    }
-    
-    .textoFooter2 {
-        color:#f8f6f3     ;
-        font-size: 11px;
-        text-align: center;
-        margin: 0px 100px 0px 100px;
-        background-color: #1a120e ;
-        padding: 15px 15px;
-    
-    }
-    
-    /*GRIDS*/
-    
-    .header_banner {
-        width: 100%;
-    }
-    
-    .grilla_FotosTextos{
-        display: grid;
-        grid-template-areas: 
-            "fotos parrafo"
-            "fotos parrafo";
-        grid-column-gap: 300px;
-        grid-row-gap: 50px;
-        grid-template-rows: 200px 200px; 
-       grid-template-columns: 200px 500px;
-       background-color: #f8f6f3 ;
-       margin: 50px 200px;
-       padding: 50px 30px;
-       justify-items: stretch;
-    
-    }
-    
-    img#fotosGrilla {
-        grid-area: fotos;    
-        align-self: center;
-     }
-    
-    div#textoGrilla {
-        grid-area: parrafo;     
-     }
-     
-     
-}
-
 * {
     Margin:0;
     padding:0;
@@ -344,7 +89,16 @@ background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
 section{
     margin: 50px 200px;
     padding: 30px 30px;
+    transition:all 0.3s ease
 }
+
+.grow:hover{
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+transform: scale(1.05);
+}
+
+
 
 .sectionUnido{
         margin: 0px 85px;
@@ -552,4 +306,316 @@ h3{
 
 button#grillaBoton{
     grid-area: boton;
+}
+
+@media screen and (max-width:450px) {
+
+    * {
+        Margin:0;
+        padding:0;
+     }
+    
+     /*Titulo*/
+     h1 {
+         padding: 20px 100px;
+         text-align: center;
+         background-color: #36373c     ;
+         color: #df5d2a   ;
+         font-family: 'Montserrat', sans-serif;
+         font-size: 70px;
+        }
+    
+    .imgLogoPrincipal {
+        max-width: 50px;
+        max-height: 50px;
+        display: block;
+        margin: 0 auto; 
+    }
+    
+    .imgBanner{
+    
+        margin: 0px;
+        border: 0px;
+    }
+    
+     header{
+         background-color: #36373c   ;
+         
+     }
+    
+     ol {
+        list-style-type: none;
+       }
+    ul {
+        list-style-type: none;
+        
+       }
+    
+    ul li {
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 50px;  
+       }
+    
+    nav {
+        text-align: center;
+        padding: 10px 10px;
+        font-size: 20px;
+        background-color: #bf033b;
+    background-image: linear-gradient(315deg, #bf033b 0%, #ffc719 74%);   ;
+        }
+    
+    a {
+        text-decoration:none;
+        color:#36373c     ;
+        
+        
+    }
+    
+    
+    .fotosCarousel {
+        max-width: 25%;
+        border: 0px; 
+        float: left;  
+        margin-bottom: 50px;
+    }
+    
+    body{
+        background-color: #d9d9d9;
+        font-family: 'Oswald', sans-serif;
+    } 
+    
+    /* Otras Secciones */
+    
+    .seccion {
+        margin: 50px 200px;
+        background-color: #d9d9d9;
+    background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+        padding: 30px 30px;
+        display: flex;
+        flex: 1;
+    
+    }
+    section{
+        margin: 50px 200px;
+        padding: 30px 30px;
+        transition:all 0.3s ease
+    }
+    
+    .grow:hover{
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+    transform: scale(1.05);
+    }
+    
+    
+    
+    .sectionUnido{
+            margin: 0px 85px;
+    
+        
+    }
+    
+    h2 {
+        text-align:left;
+        color: #df5d2a   ;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 40px;
+           }
+    
+    p {
+        text-align: left;
+    }
+    
+    .fotosBlock {
+        display: block;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    
+    div {
+        flex: 1;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    
+    .imgCentrada{
+        display: block;
+        margin: 0 auto; 
+        margin: 10px auto 20px;
+    
+    }
+    
+    .icono{
+        max-width: 70px;
+        max-height: 70px;
+        display: block;
+        margin: 0 auto; 
+        margin: 10px auto 20px;
+    
+        
+    }
+    .icono2{
+        max-width: 30px;
+        max-height: 30px;
+        display: block;
+        margin: 0 auto; 
+        
+    }
+    
+    .center{
+        text-align: center;
+    }
+    
+    button {
+        -webkit-border-radius: 28;
+      -moz-border-radius: 28;
+      border-radius: 28px;
+      border: 2px solid #fab82d ;
+      color: #fab82d;
+      background: transparent;
+      padding: 16px 32px;
+          text-align: center;
+      margin: 10px;
+    }
+    button:hover {
+        background-color: #fab82d;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .button2{
+        -webkit-border-radius: 28;
+      -moz-border-radius: 28;
+      border-radius: 28px;
+      border: 2px solid #fab82d ;
+      color: white;
+      background-color: #fab82d;
+      padding: 16px 32px;
+          text-align: center;
+    }
+    
+    /*Footer*/
+    
+    footer {
+        background-color: red
+    
+        color: #f8f6f3;
+    }
+    
+    .sectionFooter {
+        margin: 0px 100px 0px 100px;
+        
+        padding: 15px 15px;
+        display: flex;
+        flex: 1;
+    }
+    
+    h6 {
+        text-align:left;
+        color: #f8f6f3   ;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+    }
+    
+    .enlaceFooter{
+        text-decoration:none;
+        color:#b2391b     ;
+        font-size: 13px;
+        
+    }
+    
+    .textoFooter {
+        color:#b2391b     ;
+        font-size: 13px;
+        text-align: left;
+    }
+    
+    .textoFooter2 {
+        color:#f8f6f3     ;
+        font-size: 11px;
+        text-align: center;
+        margin: 0px 100px 0px 100px;
+        
+        padding: 15px 15px;
+    
+    }
+    
+    /*GRIDS*/
+    
+    .header_banner {
+        width: 100%;
+    }
+    
+    .grilla_FotosTextos{
+        display: grid;
+        grid-template-areas: 
+            "fotos parrafo"
+            "fotos parrafo";
+        grid-column-gap: 300px;
+        grid-row-gap: 50px;
+        grid-template-rows: 200px 200px; 
+       grid-template-columns: 200px 500px;
+       background-color: #d9d9d9;
+    background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+       margin: 50px 200px;
+       padding: 50px 30px;
+       justify-items: stretch;
+    
+    }
+    
+    img#fotosGrilla {
+        grid-area: fotos;    
+        align-self: center;
+     }
+    
+    div#textoGrilla {
+        grid-area: parrafo;     
+     }
+    
+    .grilla_Contacto {
+        display: grid;
+        grid-template-areas: 
+            "iconoInfo titulo formulario"
+            "icono2 texto2 formulario"
+            "icono3 texto3 boton"
+            ;
+        grid-column-gap: 10px;
+        grid-row-gap: 20px;
+        grid-template-rows: 70px 70px 70px; 
+       grid-template-columns: 50px 200px 650px;
+       background-color: #d9d9d9;
+       background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+       margin: 50px 200px;
+       padding: 50px 30px;
+    }
+     
+    img#iconoGrilla{
+        grid-area:iconoInfo;
+    }
+    img#icono2{
+        grid-area:icono2;
+    }
+    img#icono3{
+        grid-area:icono3;
+    }
+    
+    p#textoGrilla1{
+        grid-area: texto2;
+    }
+    p#textoGrilla2{
+        grid-area: texto3;
+    }
+    
+    form{
+        grid-area: formulario;
+    }
+    h3{
+        grid-area: titulo;
+    }
+    
+    button#grillaBoton{
+        grid-area: boton;
+    }
+
 }
