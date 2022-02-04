@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.css" />
     <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
 
 </head>
 <body>
     <header>
         <img src="../assets/img/AMBROSÍA.png" class="imgLogoPrincipal animate__animated animate__zoomIn">
-        <nav>
-        <ul>
+        <nav class="container-fluid">
+            <ul>
             <li> <a href="../index.html"> INICIO </a></li>
             <li> <a href="nosotros.html"> EMPRESA </a> </li>
             <li> <a href="servicios.html"> SERVICIOS </a> </li>
@@ -26,71 +26,90 @@
    
         <img src="../assets/img/bannerC.png" class="header_banner">
 
-       <section class="grilla_Contacto grow">
-            <img src="../assets/img/informacion.png" id="iconoInfo" class="icono2">
-            <h3>INFO DE CONTACTO</h3>
-            <img src="../assets/img/location.png" id="icono2" class="icono2">
-            <p id="textoGrilla1">Córdoba Argentina</p> 
-            <img src="../assets/img/email.png" id="icono3" class="icono2">
-            <p id="textoGrilla2">correo@empresarial.com</p> 
+        <div class="row seccion">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col"> <img src="../assets/img/informacion.png" id="iconoInfo" class="icono2"> </div>
+                    <div class="col"><h3>INFO DE CONTACTO</h3> </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"> <img src="../assets/img/location.png" id="icono2"" class="icono2"> </div>
+                    <div class="col-md-2"><p id="textoGrilla1">Córdoba Argentina</p>  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"> <img src="../assets/img/email.png" id="icono3" class="icono2"></div>
+                    <div class="col-md-2"><p id="textoGrilla2">correo@empresarial.com</p>  </div>
+                </div>       
+            </div>
+            <div class="col-md-7">
+                <form>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre">
+        
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido">
+        
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+        
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono">
+        
+                    <label for="fecha">Fecha del evento</label>
+                    <input type="date" id="fecha" name="fecha">
+        
+                    <label for="descripción">Contanos brevemente qué tenés pensado para tu evento</label>
+                    <input type="text" style="WIDTH: 750px; HEIGHT: 98px" id="descripción" name="descripción">
+        
+                    <button class="grillaBoton"> ENVIAR </button>
+                </form>
+            </div>
+        </div> 
+                
 
-        <form>
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre">
-
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido">
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email">
-
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono">
-
-            <label for="fecha">Fecha del evento</label>
-            <input type="date" id="fecha" name="fecha">
-
-            <label for="descripción">Contanos brevemente qué tenés pensado para tu evento</label>
-            <input type="text" style="WIDTH: 750px; HEIGHT: 98px" id="descripción" name="descripción">
-
-            <button class="grillaBoton"> ENVIAR </button>
-        </form>
-    </section>
+        
 
     
-    <footer>
-        <section class="sectionFooter">
-            <div>
+    <div class="row footer">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div class="row">
                 <h6>CATERING</h6>
-                <img src="../assets/img/cbaconvencion.png" class="fotosCarousel">
-                <img src="https://cdn1.casamientos.com.ar/img/badges/2019/badge-weddingawards_es_AR.jpg" class="fotosCarousel">
             </div>
-            <div>
-                <h6>SERVICIOS</h6>
-                <ul>
-                  <li> <a href="./serviciosempresariales.html" class="enlaceFooter"> CATERING EMPRESARIAL </a> </li>
-                   <li><a href="./serviciossociales.html" class="enlaceFooter"> CATERING FAMILIAR </a> </li>
-                </ul>
+            <div class="row">
+                <div class="col">
+                    <img src="../assets/img/cbaconvencion.png" class="fotosCarousel">
+                </div>
+                <div class="col">
+                    <img src="https://cdn1.casamientos.com.ar/img/badges/2019/badge-weddingawards_es_AR.jpg" class="fotosCarousel">
+                </div>
             </div>
-            <div>   
-                <ul> 
-                    <h6>EMPRESA</h6>
-                    <li><a href="./nosotros.html" class="enlaceFooter"> SOBRE NOSOTROS </a></li>
-                    <li><a href="./galeria.html" class="enlaceFooter"> GALERÍA </a> </li>
-                </ul>
-            </div>    
-            <div>
-                    <h6>INFO DE CONTACTO</h6>
-                    <!--logo-->
-                    <p class="textoFooter">CÓRDOBA ARGENTINA</p>
-                    <!--logo-->
-                    <p class="textoFooter">CORREO@EMPRESARIAL.COM</p> 
-                    <!--rrss-->
-            </div>        
-        </section>
-        <section class="textoFooter2">
-            <p class="center"> Copyright 2020 Catering & Eventos | Todos los Derechos Reservados | All Rights Reserved</p>
-        </section>        
-    </footer>
-</body>
-</html>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <div class="row"> <h6>SERVICIOS</h6> </div>
+            <div class="row"><a href="./serviciosempresariales.html" class="enlaceFooter"> CATERING EMPRESARIAL </a> </div>
+            <div class="row"><a href="./serviciossociales.html" class="enlaceFooter"> CATERING FAMILIAR </a></div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <div class="row"> <h6>EMPRESA</h6> </div>
+            <div class="row"><a href="./nosotros.html" class="enlaceFooter"> SOBRE NOSOTROS </a></div>
+            <div class="row"><a href="./galeria.html" class="enlaceFooter"> GALERÍA </a> </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <div class="row"> <h6>INFO DE CONTACTO</h6> </div>
+            <div class="row"><p class="textoFooter">CÓRDOBA ARGENTINA</p></div>
+            <div class="row"><p class="textoFooter">CORREO@EMPRESARIAL.COM</p></div>
+        </div>
+     </div>   
+     <div class="row footer">
+         <div class="col-md-3"></div>
+        <div class="col-md-5"><p class="center textoFooter2"> Copyright 2020 Catering & Eventos | Todos los Derechos Reservados | All Rights Reserved</p></div>
+        <div class="col-md-3"></div>
+    </div>
+        
+    
+    </body>
+    </html>
