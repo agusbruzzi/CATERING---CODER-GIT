@@ -1,4 +1,41 @@
-/*MENU*/
+/************
+MAPS
+*************/
+.btn--twitter {
+  background-color: #55acee;
+  color: white; }
+
+.btn--twitter::after {
+  background-color: #fff; }
+
+.btn--facebook {
+  background-color: #3a5795;
+  color: white; }
+
+.btn--facebook::after {
+  background-color: #fff; }
+
+.btn--instagram {
+  background-color: #8f348f;
+  color: white; }
+
+.btn--instagram::after {
+  background-color: #fff; }
+
+/************
+EXTENDS Y MIXINS
+*************/
+.padding1, .padding2 {
+  padding-top: 50px;
+  padding-bottom: 80px;
+  padding-left: 150px; }
+
+.padding2 {
+  padding-left: 30px; }
+
+/***********
+MENU
+************/
 nav {
   text-align: center;
   font-size: 20px;
