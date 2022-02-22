@@ -1,0 +1,88 @@
+@import "variables";
+
+/***********
+SECCIONES
+************/
+
+@mixin tamaños($top, $bottom, $left){
+    padding-top: $top;
+    padding-bottom: $bottom ;
+    padding-left: $left;
+}
+
+.padding1 {
+    @include tamaños(50px, 80px, 150px);
+}
+.padding2 {
+    @extend .padding1;
+    padding-left: 30px;
+}
+
+header{
+    background-color: $color-negro;
+}
+
+nav {
+    text-align: center;
+    font-size: 20px;
+    background-color: $color-rojo;
+background-image: linear-gradient(315deg, $color-rojo 0%, $color-amarillo 74%);  
+    padding: 0px;
+    margin: 0px; ;
+    }
+
+body{
+    background-color: $color-gris;
+    font-family: $fuente-dos;
+    } 
+
+.seccion {
+    margin: 50px 200px;
+    background-color: $color-gris;
+    background-image: linear-gradient(315deg, $color-gris 0%, $color-blanco 74%);
+    transition:all 0.3s ease
+        }
+
+div {
+    flex: 1;
+    margin-right: 10px;
+    margin-left: 10px;
+    }
+
+.footer {
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+    color: $color-blanco;
+    padding: 5px 5px;
+    }
+
+.header_banner {
+    width: 100%;
+    }
+
+ol {
+    list-style-type: none;
+    }
+
+ul {
+    list-style-type: none;
+    li {
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 50px;  
+        a{
+            color:$color-negro; font-size:18px; padding: 20px 30px 20px; display:inline-block; transition: all 0.5s ease 0s;
+                &:hover{
+                    background-color:$color-negro; color:$color-amarillo; transition: all 0.5s ease 0s;
+                        i{
+                            color:$color-amarillo; transition: all 0.5s ease 0s;
+                        }
+                }
+                i{
+                    padding-top:10px; color:$color-negro; transition: all 0.5s ease 0s;
+                }
+            &:last-child{padding:20px 30px;}
+        }
+       }
+    }
+   

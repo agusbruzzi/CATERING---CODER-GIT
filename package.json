@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "node-sass --include-path scss scss/stylenode.scss style/stylemenu.css",
+    "build-css": "node-sass --include-path scss scss/stylesaas.scss style/styleproyect.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
 
   },
