@@ -10,22 +10,28 @@
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.css" />
     <link rel="stylesheet" href="style/styleproyect.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-</head>
 <body>
-
-    <header x-data="{ open: false }" class="header">
-        <img src="assets/img/AMBROSÍA.png" class="imgLogoPrincipal animate__animated animate__zoomIn container-fluid">
+    <script>
+        AOS.init();
+        </script>
+    </head>
+    <header>
+        <img src="assets/img/AMBROSÍA.png" class="imgLogoPrincipal container-fluid">
         
-        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light " >
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="opciones">   
             <ul class="navbar-nav">
+                <li id="invisible" class="nav-item"> </a></li>
+                <li id="invisible" class="nav-item"></a></li>
                 <li class="nav-item"> <a href="index.html" > INICIO </a></li>
                 <li class="nav-item"> <a href="./views/nosotros.html" > EMPRESA </a> </li>
                 <li class="nav-item"><a href="./views/servicios.html" > SERVICIOS </a> 
@@ -36,14 +42,14 @@
             </nav>
        
         
-        <img src="assets/img/bannerindex.png" class="header_banner">
+        <img data-aos="fade-right" data-aos-duration="1200"src="assets/img/bannerindex.png" class="header_banner " >
 
     </header>
 
     
-    <section class="container-fluid">    
+    <section data-aos="fade-right" data-aos-delay="100" data-aos-duration="1200" data-aos-once="true"class="container-fluid">    
         <div class="row seccion padding1 grow">
-            <div class="col-md-4 col-sm-2">
+            <div ata-aos="fade-down" data-aos-delay="400" data-aos-duration="800"data-aos-once="true"class="col-md-4 col-sm-2">
                     <div class="row">
                          <img src="assets/img/casamiento-yes-7.jpg" class="fotosresponsive">
                     </div>
@@ -51,7 +57,7 @@
                          <img src="assets/img/barras-5.jpg" class="fotosresponsive">
                     </div>
             </div>
-            <div class="col-md-6 col-sm-8">
+            <div data-aos="fade-down" data-aos-delay="400" data-aos-duration="800"data-aos-once="true"class="col-md-6 col-sm-8">
                     <h2> SOBRE NOSOTROS </h2>
                         <p> 
                             Realizamos Servicios de Catering y Organización de Eventos para fiestas y eventos Empresariales, Familiares y Casamientos.
@@ -64,26 +70,26 @@
             </div>
         </div>
     </section>
-    <section class="container-fluid">
+    <section data-aos="fade-right" data-aos-delay="100" data-aos-duration="1200" data-aos-once="true"class="container-fluid">
         <div class="row seccion padding1 grow">
                 <div class="col-md-5">
-                    <div class="row">
+                    <div data-aos="fade-right" data-aos-delay="400" data-aos-duration="800" data-aos-once="true"class="row">
                     <img src="assets/img/servicios-catering-empresas-1.jpg"class="fotosresponsive" >
                     </div>
-                    <div class="row">
+                    <div data-aos="fade-down" data-aos-delay="400" data-aos-duration="800" data-aos-once="true"class="row">
                         <h3> EVENTOS EMPRESARIALES</h3>
                         <p> 
                             Soluciones para empresas. Brindamos servicio y productos de excelente calidad, adaptados a cada situación. Optimizamos espacios, menús y desarrollamos opciones personalizadas para todo tipo de eventos empresariales.                        </p>
-                    </div>
-                    <div class="row">
-                        <a href="./views/serviciosempresariales.html" class="btn btn-white btn-animate">+ INFO</a> 
-                    </div>
+                    <p>  <a href="./views/serviciosempresariales.html" class="btn btn-white btn-animate">+ INFO </a> <br id="invisible2"> <br id="invisible2"><br id="invisible2"> 
+                    </p>
+                        </div>
+                    
                 </div>
                 <div class="col-md-5">
-                    <div class="row">
+                    <div data-aos="fade-right" data-aos-delay="400" data-aos-duration="800" data-aos-once="true"class="row">
                     <img src="assets/img/servicios-catering-familiares-1.jpg" class="fotosresponsive" >
                     </div>
-                    <div class="row">
+                    <div data-aos="fade-down" data-aos-delay="400" data-aos-duration="800" data-aos-once="true"class="row">
                         <h3> EVENTOS SOCIALES & FAMILIARES </h3>
                         <p> 
                             Contamos con menús pensados para que sólo tengas que disfrutar en tus eventos familiares: cumpleaños, aniversarios, reuniones familiares o entre amigos, bautismos y comuniones.<br><br>                        </p>
@@ -94,9 +100,9 @@
                 </div>
 
         </section>
-        <section class="container-fluid">
+        <section data-aos="fade-right" data-aos-delay="100" data-aos-duration="1200" data-aos-once="true"class="container-fluid">
             <div class="row seccion padding1 grow">
-              <div class="col-md-2">
+              <div data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800" data-aos-once="true"class="col-md-2">
                   <div class="row">
                     <img src="assets/img/spa.png" class="icono">
                   </div>
@@ -105,7 +111,7 @@
                     <p>Decoración, Mobiliario y Carpas Estructurales para tu evento.</p>
                   </div>
               </div>
-              <div class="col-md-2">
+              <div data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1300" data-aos-once="true"class="col-md-2">
                 <div class="row">
                     <img src="assets/img/lampara.png" class="icono">
                 </div>
@@ -114,7 +120,7 @@
                     <p>Luces, la mejor música y Dj`s para tu fiesta.</p>
                 </div>
                </div>
-               <div class="col-md-3">
+               <div data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1700" data-aos-once="true"class="col-md-3">
                     <div class="row">
                         <img src="assets/img/feliz.png" class="icono">
                     </div>
@@ -123,7 +129,7 @@
                          <p>Propuestas de shows en vivo, presentadores y animadores para tu evento.</p>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div data-aos="zoom-in" data-aos-delay="400" data-aos-duration="2100" data-aos-once="true"class="col-md-2">
                     <div class="row">
                         <img src="assets/img/camara.png" class="icono">
                     </div>
@@ -135,16 +141,16 @@
             </div>
         </section>
 
-        <section class="container-fluid">
+        <section data-aos="fade-right" data-aos-delay="100" data-aos-duration="1200" data-aos-once="true" id="invisible"class="container-fluid">
        <div class="row seccion padding2 padding3 grow">
-        <div class="col">
+        <div class="col-md-12">
             <div class="row">
                 <h2 class="center h2responsive">¿NECESITÁS ASESORAMIENTO INMEDIATO?</h2> 
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-10"></div>
+                <div id="invisible"class="col-md-4 col-sm-10"></div>
                 <div class="col-md-4 col-sm-10"><a href="./views/contacto.html" class="btn btn-white btn-animate">LLAMANOS AHORA</a> </div> 
-                <div class="col-md-4"></div>
+                <div id="invisible"class="col-md-4 col-sm-10"></div>
             </div>
             </div>
     </div>
@@ -153,43 +159,41 @@
 
     <footer class="container-fluid">
 <div class="row footer">
-    <div class="col-md-1"></div>
-    <div class="col-md-2">
+    <div id="invisible" class="col-md-1 "></div>
+    <div  class="col-md-2">
         <div class="row">
             <h6>CATERING</h6>
         </div>
         <div class="row">
-            <div class="col">
-                <img src="assets/img/cbaconvencion.png" class="fotosCarousel">
+            <div class="col-md-1-xs-9">
+                <img src="assets/img/cbaconvencion.png" class="fotosCarousel fotosresponsive">
             </div>
-            <div class="col">
-                <img src="https://cdn1.casamientos.com.ar/img/badges/2019/badge-weddingawards_es_AR.jpg" class="fotosCarousel">
+            <div class="col-md-1-xs-9">
+                <img src="https://cdn1.casamientos.com.ar/img/badges/2019/badge-weddingawards_es_AR.jpg" class="fotosCarousel fotosresponsive">
             </div>
         </div>
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-1">
+    <div id="invisible" class="col-md-1"></div>
+    <div  class="col-md-1">
         <div class="row"> <h6>SERVICIOS</h6> </div>
         <div class="row"><a href="../CATERING/views/serviciosempresariales.html" class="enlaceFooter"> CATERING EMPRESARIAL </a> </div>
         <div class="row"><a href="../CATERING/views/serviciossociales.html" class="enlaceFooter"> CATERING FAMILIAR </a></div>
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-1">
+    <div id="invisible" class="col-md-1"></div>
+    <div  class="col-md-1">
         <div class="row"> <h6>EMPRESA</h6> </div>
         <div class="row"><a href="../CATERING/views/nosotros.html" class="enlaceFooter"> SOBRE NOSOTROS </a></div>
         <div class="row"><a href="../CATERING/views/galeria.html" class="enlaceFooter"> GALERÍA </a> </div>
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-1">
+    <div id="invisible" class="col-md-1"></div>
+    <div id="invisible" class="col-md-1">
         <div class="row"> <h6>INFO DE CONTACTO</h6> </div>
         <div class="row"><p class="textoFooter">CÓRDOBA ARGENTINA</p></div>
         <div class="row"><p class="textoFooter">CORREO@EMPRESARIAL.COM</p></div>
     </div>
  </div>   
  <div class="row footer">
-     <div class="col-md-3"></div>
-    <div class="col-md-5"><p class="center textoFooter2"> Copyright 2020 Catering & Eventos | Todos los Derechos Reservados | All Rights Reserved</p></div>
-    <div class="col-md-3"></div>
+    <div class=" col-xs-12 col-md-12"><p class="center textoFooter2"> Copyright 2020 Catering & Eventos | Todos los Derechos Reservados | All Rights Reserved</p></div>
 </div>
     
 </footer>

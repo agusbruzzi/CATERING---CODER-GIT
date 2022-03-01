@@ -10,36 +10,44 @@
     <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.css" />
     <link rel="stylesheet" href="../style/styleproyect.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
 </head>
 <body>
     <header>
         <img src="../assets/img/AMBROSÍA.png" class="imgLogoPrincipal animate__animated animate__zoomIn container-fluid">
-        <nav>
-            <ul id="menu">
-            <li> <a href="../index.html"> INICIO </a></li>
-            <li> <a href="nosotros.html"> EMPRESA </a> </li>
-            <li> <a href="servicios.html"> SERVICIOS </a> </li>
-            <li> <a href="galeria.html"> GALERIA </a> </li>
-            <li> <a href="contacto.html"> CONTACTO </a> </li>
-        </ul>
-        </nav>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-light " >
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="opciones">   
+            <ul class="navbar-nav">
+                <li id="invisible" class="nav-item"> </a></li>
+                <li id="invisible" class="nav-item"></a></li>
+                <li class="nav-item"> <a href="../index.html" > INICIO </a></li>
+                <li class="nav-item"> <a href="./nosotros.html" > EMPRESA </a> </li>
+                <li class="nav-item"><a href="./servicios.html" > SERVICIOS </a> 
+                <li class="nav-item"> <a href="./galeria.html"> GALERIA </a> </li>
+                <li class="nav-item"> <a href="./contacto.html"> CONTACTO </a> </li>
+            </ul>
+            </div>
+            </nav>
         <img src="../assets/img/bannerS.png" class="header_banner">
+
     </header>
    
     <section class="container-fluid">    
     <div class="row seccion padding1 grow">
         <div class="col-md-5"> <img src="../assets/img/catering-empresarial-servicios-21.jpg" class="fotosCarousel fotosresponsive2" > </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <h5>CATERING</h5>
             <h3>NUESTROS SERVICIOS</h3>
             <p>Ofrecemos Servicios de Catering a medida para eventos de índole Social, Familiar y Empresarial, adaptándonos así a cada ocasión y lugar. Además ofrecemos la Organización integral para la producción de eventos, ofreciendo soluciones para los distintos aspectos planificando en conjunto con vos desde el principio.</p>
                <p>Realizamos servicios de Catering en Córdoba, Gran Córdoba y a todo el país con logística y equipamiento propio. Además contamos con un equipo de profesionales dedicados a la ambientación, sonido e iluminación, Djs, Actividades Recreativas, Salones, Fotografía, Video, Shows y todo lo necesario para la organización de todo tipo de eventos. </p>   
                 <p>Nuestro concepto de Catering apunta a brindar calidad de atención, de productos y sobre todo de enfoque para el servicio, por esto que es que nos basamos en lo que se quiere transmitir en la ocasión, con el lugar en el que se realiza, con la cantidad y el tipo de personas que asisten, para poder realizar una atención a medida que garantiza el éxito del evento.</p>
         </div>
-        <div class="col-md-1"></div>
     </div>
     </section>
     <section class="container-fluid">
@@ -51,33 +59,32 @@
             <div class="row">
                 <h3> EVENTOS EMPRESARIALES</h3>
                 <p> 
-                    Soluciones para empresas. Brindamos servicio y productos de excelente calidad, adaptados a cada situación. Optimizamos espacios, menús y desarrollamos opciones personalizadas para todo tipo de eventos empresariales.                </p> </div>
-                <div class="row">
-                <a href="./serviciosempresariales.html" class="btn btn-white btn-animate">+ INFO</a>
+                    Soluciones para empresas. Brindamos servicio y productos de excelente calidad, adaptados a cada situación. Optimizamos espacios, menús y desarrollamos opciones personalizadas para todo tipo de eventos empresariales.                </p> 
+            </div>
+            <div class="row">
+                <a href="./serviciosempresariales.html" class="btn btn-white btn-animate">+ INFO</a><br id="invisible2"><br id="invisible2"><br id="invisible2">
             </div>
         </div>
-        <div class="col-md-1"></div>
+        <div id="invisible" class="col-md-1"></div>
 
         <div class="col-md-5">
-            <div class="row">
+            <div class="row ">
             <img src="../assets/img/servicios-catering-casamientos-1.jpg" class="fotosresponsive2" >
             </div>
             <div class="row">
                 <h3> EVENTOS SOCIALES & FAMILIARES </h3>
                 <p> 
-                    Contamos con menús pensados para que sólo tengas que disfrutar en tus eventos familiares: cumpleaños, aniversarios, reuniones familiares o entre amigos, bautismos y comuniones.                </p> </div>
-                <div>
-                    <a href="./serviciossociales.html" class="btn btn-white btn-animate">+ INFO</a>
-                </div>
-                
+                    Contamos con menús pensados para que sólo tengas que disfrutar en tus eventos familiares: cumpleaños, aniversarios, reuniones familiares o entre amigos, bautismos y comuniones.                </p>
+            </div>
+            <div class="row">
+                            <a href="./serviciossociales.html" class="btn btn-white btn-animate">+ INFO</a>
             </div>
         </div>
 
-        <div class="col-md-1"></div>
     </div>
     </section>
 
-    <section class="container-fluid">
+    <section id="invisible"class="container-fluid">
         <div class="row seccion padding2 padding3 grow">
          <div class="col">
              <div class="row">
@@ -92,48 +99,45 @@
      </div>
      </section>
 
- <footer class="container-fluid">
-
-     <div class="row footer">
-    <div class="col-md-1"></div>
-    <div class="col-md-2">
-        <div class="row">
-            <h6>CATERING</h6>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img src="../assets/img/cbaconvencion.png" class="fotosCarousel">
+     <footer class="container-fluid">
+        <div class="row footer">
+            <div id="invisible" class="col-md-1 "></div>
+            <div  class="col-md-2">
+                <div class="row">
+                    <h6>CATERING</h6>
+                </div>
+                <div class="row">
+                    <div class="col-md-1-xs-9">
+                        <img src="../assets/img/cbaconvencion.png" class="fotosCarousel fotosresponsive">
+                    </div>
+                    <div class="col-md-1-xs-9">
+                        <img src="https://cdn1.casamientos.com.ar/img/badges/2019/badge-weddingawards_es_AR.jpg" class="fotosCarousel fotosresponsive">
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <img src="https://cdn1.casamientos.com.ar/img/badges/2019/badge-weddingawards_es_AR.jpg" class="fotosCarousel">
+            <div id="invisible" class="col-md-1"></div>
+            <div  class="col-md-1">
+                <div class="row"> <h6>SERVICIOS</h6> </div>
+                <div class="row"><a href="./serviciosempresariales.html" class="enlaceFooter"> CATERING EMPRESARIAL </a> </div>
+                <div class="row"><a href="./serviciossociales.html" class="enlaceFooter"> CATERING FAMILIAR </a></div>
             </div>
+            <div id="invisible" class="col-md-1"></div>
+            <div  class="col-md-1">
+                <div class="row"> <h6>EMPRESA</h6> </div>
+                <div class="row"><a href="./nosotros.html" class="enlaceFooter"> SOBRE NOSOTROS </a></div>
+                <div class="row"><a href="./galeria.html" class="enlaceFooter"> GALERÍA </a> </div>
+            </div>
+            <div id="invisible" class="col-md-1"></div>
+            <div id="invisible" class="col-md-1">
+                <div class="row"> <h6>INFO DE CONTACTO</h6> </div>
+                <div class="row"><p class="textoFooter">CÓRDOBA ARGENTINA</p></div>
+                <div class="row"><p class="textoFooter">CORREO@EMPRESARIAL.COM</p></div>
+            </div>
+         </div>   
+         <div class="row footer">
+            <div class=" col-xs-12 col-md-12"><p class="center textoFooter2"> Copyright 2020 Catering & Eventos | Todos los Derechos Reservados | All Rights Reserved</p></div>
         </div>
-    </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-1">
-        <div class="row"> <h6>SERVICIOS</h6> </div>
-        <div class="row"><a href="./serviciosempresariales.html" class="enlaceFooter"> CATERING EMPRESARIAL </a> </div>
-        <div class="row"><a href="./serviciossociales.html" class="enlaceFooter"> CATERING FAMILIAR </a></div>
-    </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-1">
-        <div class="row"> <h6>EMPRESA</h6> </div>
-        <div class="row"><a href="./nosotros.html" class="enlaceFooter"> SOBRE NOSOTROS </a></div>
-        <div class="row"><a href="./galeria.html" class="enlaceFooter"> GALERÍA </a> </div>
-    </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-1">
-        <div class="row"> <h6>INFO DE CONTACTO</h6> </div>
-        <div class="row"><p class="textoFooter">CÓRDOBA ARGENTINA</p></div>
-        <div class="row"><p class="textoFooter">CORREO@EMPRESARIAL.COM</p></div>
-    </div>
- </div>   
- <div class="row footer">
-     <div class="col-md-3"></div>
-    <div class="col-md-5"><p class="center textoFooter2"> Copyright 2020 Catering & Eventos | Todos los Derechos Reservados | All Rights Reserved</p></div>
-    <div class="col-md-3"></div>
-</div>
-    
-</footer>
+            
+        </footer>
 </body>
 </html>

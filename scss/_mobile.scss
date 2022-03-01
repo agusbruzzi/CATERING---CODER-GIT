@@ -1,5 +1,8 @@
-
-
+@media screen and (min-width:450px) {
+    #invisible2{
+        display: none;
+    }
+}
 @media screen and (max-width:450px) {
     * {
         Margin:0;
@@ -35,9 +38,16 @@
         float: left;  
         margin-bottom: 50px;
     }  
+
+    .icono2{
+        max-width: 100%;
+        border: 0px; 
+        float: left;  
+        
+    }
     
     .fotosresponsive2{
-        max-width: 130px;
+        max-width: 220px;
 
         border: 0px; 
         float: left;  
@@ -72,5 +82,21 @@
     nav {
         font-size: 8px;
     }
+
+    .navbar {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+      }
 
 }
