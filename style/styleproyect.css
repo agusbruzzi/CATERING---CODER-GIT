@@ -233,7 +233,7 @@ IMAGENES
     width: 200px;
     max-width: 100%; }
   .fotosgaleria {
-    max-width: 600px; }
+    max-width: 100%; }
   .seccion {
     margin: 60px 50px; }
   .fotosresponsive {
