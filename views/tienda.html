@@ -15,11 +15,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../js/codigojs.js"></script>
+
 </head>
 <body>
     <script>
         AOS.init();
         </script>
+        <script src="../js/codigojs.js"></script>
     <header>
         <img src="../assets/img/AMBROSÍA.png" class="imgLogoPrincipal container-fluid">
 
@@ -60,19 +63,17 @@
                         <h4> PRODUCTOS 2</h3>
                         <p>descripcion del productodescripcion del productodescripcion del producto</p>
                         <p class="precio">PRECIO: $1000</p>
-                        <button class="botoncarrito">-</button>
-                        <input type="text" style="WIDTH: 75%; HEIGHT: 35px" id="descripción" name="descripción">
-                        <button class="botoncarrito">+</button>
-                        <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
+                        <p id="mostrador1"> 0 </p>
+                        <button type="button" class="botoncarrito" onclick="sumar1()">+</button>
+                        <button class="botonsumarcarrito" onclick="agregar(1000)">AGREGAR AL CARRITO</button>
                     </div>
                     <div class="col-md-3 productosmenu">
                         <img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
                         <h4> PRODUCTOS 3</h3>
                         <p>descripcion del productodescripcion del productodescripcion del producto</p>
-                        <p class="precio">PRECIO: $1000</p>
-                        <button class="botoncarrito">-</button>
-                        <input type="text" style="WIDTH: 75%; HEIGHT: 35px" id="descripción" name="descripción">
-                        <button class="botoncarrito">+</button>
+                        <p class="precio">PRECIO: $500</p>
+                        <p id="mostrador2"> 0 </p>
+                        <button type="button" class="botoncarrito" onclick="sumar2()">+</button>
                         <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
 
                     </div>
@@ -80,51 +81,15 @@
                         <img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
                         <h4> PRODUCTOS 4</h3>
                             <p>descripcion del productodescripcion del productodescripcion del producto</p>
-                        <p class="precio">PRECIO: $1000</p>
-                            <button class="botoncarrito">-</button>
-                            <input type="text" style="WIDTH: 75%; HEIGHT: 35px" id="descripción" name="descripción">
-                            <button class="botoncarrito">+</button>
-                            <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
+                        <p class="precio">PRECIO: $400</p>
+                        <p id="mostrador3"> 0 </p>
+                        <button type="button" class="botoncarrito" onclick="sumar3()">+</button>
+                        <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
 
                     </div>
                 </div> 
-                <div class="row productosmenu">
-                    <div class="col-md-3 productosmenu">
-                        <img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
-                        <h4> PRODUCTOS 2</h3>
-                            <p>descripcion del productodescripcion del productodescripcion del producto</p>
-                        <p class="precio">PRECIO: $1000</p>
-                        <button class="botoncarrito">-</button>
-                        <input type="text" style="WIDTH: 75%; HEIGHT: 35px" id="descripción" name="descripción">
-                        <button class="botoncarrito">+</button>
-                        <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
-
-                    </div>
-                    <div class="col-md-3 productosmenu">
-                        <img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
-                        <h4> PRODUCTOS 3</h3>
-                            <p>descripcion del productodescripcion del productodescripcion del producto</p>
-                        <p class="precio">PRECIO: $1000</p>
-                        <button class="botoncarrito">-</button>
-                        <input type="text" style="WIDTH: 75%; HEIGHT: 35px" id="descripción" name="descripción">
-                        <button class="botoncarrito">+</button>
-                        <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
-
-                    </div>
-                    <div class="col-md-3 productosmenu">
-                        <img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
-                        <h4> PRODUCTOS 4</h3>
-                            <p>descripcion del productodescripcion del productodescripcion del producto</p>
-                        <p class="precio">PRECIO: $1000</p>
-                            <button class="botoncarrito">-</button>
-                            <input type="text" style="WIDTH: 75%; HEIGHT: 35px" id="descripción" name="descripción">
-                            <button class="botoncarrito">+</button>
-                            <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
-
-                    </div>
-                </div>
                 
-                </div>
+                
                 
             </div>
         </div>
@@ -138,8 +103,8 @@
                     <div class="col-6 totalmenu">
                     </div>
                 <div class="col-3 totalmenu">
-                    <br><label>TOTAL </label><input type="text" style="WIDTH: 50%; HEIGHT: 35px" id="descripción" name="descripción">
-                    <button class="botonborrarcarrito">BORRAR CARRITO</button>
+                    <br> <br><p id="totalcarrito"> 0 </p>
+                    <button class="botonborrarcarrito" onclick="borrar()">BORRAR CARRITO</button>
 
                 </div>
 
@@ -194,4 +159,5 @@
             
         </footer>
 </body>
+
 </html>
