@@ -107,7 +107,9 @@ ul {
     text-align: center;
     font-size: 20px;
     border: none;
-    width: 10%;
+    width: 50%;
+    display: inline;
+
 }
 
 .botonsumarcarrito{
@@ -131,5 +133,10 @@ ul {
     width: 50%;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.mostradorCantidad{
+    display: inline;
+
 }
    

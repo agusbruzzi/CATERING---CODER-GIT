@@ -53,8 +53,8 @@
     </section>
     <section >
         <div class="row">
-            <div class="col-2 filtrosmenu">
-                <h4> FILTROS </h4>
+            <div class="col-2 filtrosmenu listadocarrito">
+                <h4> LISTADO CARRITO </h4>
             </div>
             <div class="col-9">
                 <div class="row productosmenu">
@@ -63,18 +63,25 @@
                         <h4> PRODUCTOS 2</h3>
                         <p>descripcion del productodescripcion del productodescripcion del producto</p>
                         <p class="precio">PRECIO: $1000</p>
-                        <p id="mostrador1"> 0 </p>
-                        <button type="button" class="botoncarrito" onclick="sumar1()">+</button>
-                        <button class="botonsumarcarrito" onclick="agregar(1000)">AGREGAR AL CARRITO</button>
+                        <div class="row">
+                            <div class="col"><button class="botoncarrito" onclick="botonRestarUno(0)">-</button></div>
+                            <div class="col"><p class="mostradorCantidad" id="mostradorCantidad"> 0 </p></div>
+                            <div class="col"><button type="button" class="botoncarrito" onclick="botonSumarUno(0)">+</button></div>
+                        </div>
+                        <button class="botonsumarcarrito" onclick="agregarAlCarrito(1000,0)">AGREGAR AL CARRITO</button>
                     </div>
+                    
                     <div class="col-md-3 productosmenu">
                         <img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
                         <h4> PRODUCTOS 3</h3>
                         <p>descripcion del productodescripcion del productodescripcion del producto</p>
                         <p class="precio">PRECIO: $500</p>
-                        <p id="mostrador2"> 0 </p>
-                        <button type="button" class="botoncarrito" onclick="sumar2()">+</button>
-                        <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
+                        <div class="row">
+                            <div class="col"><button class="botoncarrito" onclick="botonRestarUno(1)">-</button></div>
+                            <div class="col"><p class="mostradorCantidad" id="mostradorCantidad"> 0 </p></div>
+                            <div class="col"><button type="button" class="botoncarrito" onclick="botonSumarUno(1)">+</button></div>
+                        </div>
+                        <button class="botonsumarcarrito" onclick="agregarAlCarrito(500,1)">AGREGAR AL CARRITO</button>
 
                     </div>
                     <div class="col-md-3 productosmenu">
@@ -82,15 +89,15 @@
                         <h4> PRODUCTOS 4</h3>
                             <p>descripcion del productodescripcion del productodescripcion del producto</p>
                         <p class="precio">PRECIO: $400</p>
-                        <p id="mostrador3"> 0 </p>
-                        <button type="button" class="botoncarrito" onclick="sumar3()">+</button>
-                        <button class="botonsumarcarrito">AGREGAR AL CARRITO</button>
+                        <div class="row">
+                            <div class="col"><button class="botoncarrito" onclick="botonRestarUno(2)">-</button></div>
+                            <div class="col"><p class="mostradorCantidad" id="mostradorCantidad"> 0 </p></div>
+                            <div class="col"><button type="button" class="botoncarrito" onclick="botonSumarUno(2)">+</button></div>
+                        </div>
+                        <button class="botonsumarcarrito" onclick="agregarAlCarrito(400,2)">AGREGAR AL CARRITO</button>
 
                     </div>
-                </div> 
-                
-                
-                
+                </div>            
             </div>
         </div>
     </section>
@@ -104,7 +111,7 @@
                     </div>
                 <div class="col-3 totalmenu">
                     <br> <br><p id="totalcarrito"> 0 </p>
-                    <button class="botonborrarcarrito" onclick="borrar()">BORRAR CARRITO</button>
+                    <button class="botonborrarcarrito" onclick="borrarCarrito()">BORRAR CARRITO</button>
 
                 </div>
 
