@@ -13,20 +13,106 @@ const productos = [
     {idproducto: 4, nomproducto: "Producto 4", precio: 365, publicado: true },
     {idproducto: 5, nomproducto: "Producto 5", precio: 1870, publicado: true },
     {idproducto: 6, nomproducto: "Producto 6", precio: 2345, publicado: true },
-    {idproducto: 7, nomproducto: "Producto 7", precio: 239, publicado: false },
-    {idproducto: 8, nomproducto: "Producto 8", precio: 418, publicado: true },
-    {idproducto: 9, nomproducto: "Producto 9", precio: 1947, publicado: false },
-    {idproducto: 10, nomproducto: "Producto 10", precio: 3099, publicado: false },
 ]
+const elementopadre = document.getElementById("listadoproductos");
+for (const producto of productos) {
+        let contenedor = document.createElement('div');
+        contenedor.innerHTML =  `<img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
+                                 <h4> ${producto.nomproducto} </h4>
+                                 <p>descripcion del productodescripcion del productodescripcion del producto</p>
+                                 <p class="precio"> PRECIO: ${producto.precio}</p>
+                                 <div class="row">
+                                    <div class="col"><button class="botoncarrito" onclick="botonRestarUno()">-</button></div>
+                                    <div class="col"><p class="mostradorcantidad" id="mostradorCantidad"> 0 </p></div>
+                                    <div class="col"><button type="button" class="botoncarrito" onclick="botonSumarUno()">+</button></div>
+                                 </div>
+                                 <button class="botonsumarcarrito" onclick="agregarAlCarrito">AGREGAR AL CARRITO</button>`;
+        elementopadre.appendChild(contenedor);
+    }
+// MODIFICAMOS ELEMENTOS HTML DE LA PÁGINA TIENDA
+//Aumentamos "+1" cada vez que se presiona el botón "+"
+function sumarUno(cantidadActual) {
+    var numCantidad = parseInt(cantidadActual);
+    var proxCantidad= numCantidad + 1;
+    return proxCantidad;
+}
+function botonSumarUno(ordenElemento) {
+    let cantidades = document.getElementsByClassName("mostradorCantidad");
+    let cantidadActual = parseInt(cantidades[ordenElemento].innerHTML);
+    proximaCantidad = sumarUno(cantidadActual);
+    document.getElementsByClassName("mostradorCantidad")[ordenElemento].innerHTML = proximaCantidad;
+}
+//Disminuimos "-1" cada vez que se presiona el botón "-"
+function restarUno(cantidadActual) {
+    var numCantidad = parseInt(cantidadActual);
+    if (numCantidad != 0) {
+        var proxCantidad= numCantidad - 1;
+        return proxCantidad;
+    }
+    else { var proxCantidad = 0 ; return proxCantidad}
+}
+function botonRestarUno(ordenElemento) {
+    let cantidades = document.getElementsByClassName("mostradorCantidad");
+    let cantidadActual = parseInt(cantidades[ordenElemento].innerHTML);
+    proximaCantidad = restarUno(cantidadActual);
+    document.getElementsByClassName("mostradorCantidad")[ordenElemento].innerHTML = proximaCantidad;
+}
+// Ahora gestionamos el carrito
+/*Creo el objeto carrito
+function ProductoCarrito (idproducto, cantidad, precio) {
+    this.idproducto = idproducto;
+    this.cantidad = cantidad;
+    this.precio = precio;
+}
+// Funcion para listar los objetos del carrito
+function crearListaCarrito(lista, id, nombre, cantidad, precio){
+    lista = lista + "ID: "+id + " - ";
+    lista = lista + "NOMBRE: "+nombre + " - ";
+    lista = lista + "CANTIDAD: "+cantidad + " - ";
+    lista = lista + "PRECIO : "+precio + " - ";
+    lista = lista + "\n";
+    return lista;
+}*/
+// Boton Agregar al Carrito
+function agregarAlCarrito(precio, ordenElemento) {
+    let cantidades = document.getElementsByClassName("mostradorCantidad");
+    let cantidadActual = parseInt(cantidades[ordenElemento].innerHTML);
+    let preSubTotal = cantidadActual * precio;
+    let anteriorSubtotal = parseInt(document.getElementById("totalcarrito").innerHTML);
+    let nuevoSubtotal = preSubTotal + anteriorSubtotal;
+    document.getElementById("totalcarrito").innerHTML = nuevoSubtotal;
+    document.getElementsByClassName("mostradorCantidad")[ordenElemento].innerHTML = 0;
+}
+//Boton Borrar Carrito
+function borrarCarrito(){
+    document.getElementById("totalcarrito").innerHTML = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//FUNCIONES AUN NO APLICADAS
+/*
+
+
 // Añadir nuevos productos
 function crearNuevoProducto (){
     var nombreNuevoProducto = prompt("Ingrese nombre del nuevo producto: ");
     var precioNuevoProducto = prompt("Ingrese precio del nuevo producto: ");
-    /* Para calcular el ID del nuevo producto, siendo que la idea es que sean consecutivos,
-    se me ocurrio en primera instancia crear un nuevo array pero que solo contengan los id */
+    Para calcular el ID del nuevo producto, siendo que la idea es que sean consecutivos,
+    se me ocurrio en primera instancia crear un nuevo array pero que solo contengan los id 
     const idproductosExistentes = productos.map ((pr) => pr.idproducto);
     /* una vez que ya tengo ese array, lo ordeno de mayor a menor, teniendo en la posición 0
-    al id más grande */
+    al id más grande
     idproductosExistentes.sort((a, b) => b - a);
     var idNuevoProducto = idproductosExistentes[0] + 1;
     var estadoNuevoProducto = true;
@@ -35,7 +121,7 @@ function crearNuevoProducto (){
 }
 /* Ahora voy hacer unas funciones que muestren las listas de los productos
 si cumplen ciertos requisitos, por eso cree la funcion crearlista() para 
-no repetir código*/
+no repetir código
 function crearLista(lista, id, nombre, precio){
     lista = lista + "ID: "+id + " - ";
     lista = lista + "NOMBRE: "+nombre + " - ";
@@ -125,8 +211,6 @@ function editarProductos(){
         alert("Operación Cancelada");
     }
 }
-
-
 //ADMINISTRACIÓN DE VENTAS
 /* Con esta función hago la compra, faltan muchas verificaciones con lo que ingresa el cliente 
 pero, como la idea es que se haga a futuro con el front que ya diseñe, hice las necesarias
@@ -171,64 +255,6 @@ function generarCarrito(){
     }
 }*/
 
-// MODIFICAMOS ELEMENTOS HTML DE LA PÁGINA TIENDA
-//Aumentamos "+1" cada vez que se presiona el botón "+"
-function sumarUno(cantidadActual) {
-    var numCantidad = parseInt(cantidadActual);
-    var proxCantidad= numCantidad + 1;
-    return proxCantidad;
-}
-function botonSumarUno(ordenElemento) {
-    let cantidades = document.getElementsByClassName("mostradorCantidad");
-    let cantidadActual = parseInt(cantidades[ordenElemento].innerHTML);
-    proximaCantidad = sumarUno(cantidadActual);
-    document.getElementsByClassName("mostradorCantidad")[ordenElemento].innerHTML = proximaCantidad;
-}
-//Disminuimos "-1" cada vez que se presiona el botón "-"
-function restarUno(cantidadActual) {
-    var numCantidad = parseInt(cantidadActual);
-    if (numCantidad != 0) {
-        var proxCantidad= numCantidad - 1;
-        return proxCantidad;
-    }
-    else { var proxCantidad = 0 ; return proxCantidad}
-}
-function botonRestarUno(ordenElemento) {
-    let cantidades = document.getElementsByClassName("mostradorCantidad");
-    let cantidadActual = parseInt(cantidades[ordenElemento].innerHTML);
-    proximaCantidad = restarUno(cantidadActual);
-    document.getElementsByClassName("mostradorCantidad")[ordenElemento].innerHTML = proximaCantidad;
-}
-// Ahora gestionamos el carrito
-//Creo el objeto carrito
-function ProductoCarrito (idproducto, cantidad, precio) {
-    this.idproducto = idproducto;
-    this.cantidad = cantidad;
-    this.precio = precio;
-}
-// Funcion para listar los objetos del carrito
-function crearListaCarrito(lista, id, nombre, cantidad, precio){
-    lista = lista + "ID: "+id + " - ";
-    lista = lista + "NOMBRE: "+nombre + " - ";
-    lista = lista + "CANTIDAD: "+cantidad + " - ";
-    lista = lista + "PRECIO : "+precio + " - ";
-    lista = lista + "\n";
-    return lista;
-}
-// Boton Agregar al Carrito
-function agregarAlCarrito(precio, ordenElemento) {
-    let cantidades = document.getElementsByClassName("mostradorCantidad");
-    let cantidadActual = parseInt(cantidades[ordenElemento].innerHTML);
-    let preSubTotal = cantidadActual * precio;
-    let anteriorSubtotal = parseInt(document.getElementById("totalcarrito").innerHTML);
-    let nuevoSubtotal = preSubTotal + anteriorSubtotal;
-    document.getElementById("totalcarrito").innerHTML = nuevoSubtotal;
-    document.getElementsByClassName("mostradorCantidad")[ordenElemento].innerHTML = 0;
-}
-//Boton Borrar Carrito
-function borrarCarrito(){
-    document.getElementById("totalcarrito").innerHTML = 0;
-}
 
 
 
@@ -237,38 +263,3 @@ function borrarCarrito(){
 
 
 
-
-
-
-
-
-
-
-
-//Vamos a crear el codigo que nos permite crear el listado de productos
-/*  <div class="col-md-3 productosmenu">
-            <img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
-            <h4> PRODUCTOS 2</h3>
-            <p>descripcion del productodescripcion del productodescripcion del producto</p>
-            <p class="precio">PRECIO: $1000</p>
-            <div class="row">
-                <div class="col"><button class="botoncarrito" onclick="botonRestarUno()">-</button></div>
-                <div class="col"><p class="mostradorcantidad" id="mostradorCantidad"> 0 </p></div>
-                <div class="col"><button type="button" class="botoncarrito" onclick="botonSumarUno()">+</button></div>
-            </div>
-            <button class="botonsumarcarrito" onclick="agregar(1000)">AGREGAR AL CARRITO</button>
-    </div> 
-for (const producto of productos) {
-    let.contenedor = document.createElement("div");
-    contenedor.innerHTML =  `<img src="../assets/img/servicios-organizacion-integral-1.jpg" class="fototienda" >
-                             <h4> ${producto.nomproducto} </h4>
-                             <p>descripcion del productodescripcion del productodescripcion del producto</p>
-                             <p class="precio"> PRECIO: ${producto.precio}</p>
-                             <div class="row">
-                                <div class="col"><button class="botoncarrito" onclick="botonRestarUno()">-</button></div>
-                                <div class="col"><p class="mostradorcantidad" id="mostradorCantidad"> 0 </p></div>
-                                <div class="col"><button type="button" class="botoncarrito" onclick="botonSumarUno()">+</button></div>
-                             </div>
-                             <button class="botonsumarcarrito" onclick="agregarAlCarrito">AGREGAR AL CARRITO</button>`;
-    document.body.appendChild(contenedor);
-} */
