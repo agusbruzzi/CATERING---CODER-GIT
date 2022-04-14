@@ -60,7 +60,7 @@ h6 {
     }
 
 .nomcarrito {
-    color: #d3323d; 
+    color: $colo-rosa; 
     font-size: 18px;
 
 }
@@ -75,7 +75,7 @@ h6 {
 }
 
 .botonborrardelcarrito{
-    background-color:#d3323d;
+    background-color: $colo-rosa;
     color: $color-blanco;
     text-align: center;
     font-size: 15px;
@@ -91,4 +91,11 @@ h6 {
     font-weight: 900;
     display: inline-block;
 
+}
+.mostradorCantidaddetalle{
+    font-size: 15px;
+    line-height: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 56%;
 }

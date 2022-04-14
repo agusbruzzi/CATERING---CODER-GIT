@@ -44,8 +44,10 @@ function renderizarCarrito(producto){
         let contenedor = document.createElement('div');
         contenedor.innerHTML =  `
                                  <h5 class="nomcarrito"> ${nombreprod} </h5>
-                                 <p class="infocarrito" id="cantidad${producto.idproducto}"> CANTIDAD: ${producto.cantidad}</p>
                                  <p class="infocarrito preciocarrito" id="precio${producto.idproducto}"> PRECIO: ${producto.precio}</p>
+                                 <button class="botoncarritodetalle" onclick="restarUnoCarrito(${producto.idproducto})">-</button></div>
+                                 <p class="mostradorCantidaddetalle" id="cantidad${producto.idproducto}"> ${producto.cantidad} </p></div>
+                                 <button type="button" class="botoncarritodetalle" onclick="sumarUnoCarrito(${producto.idproducto})">+</button></div>
                                  <button class="botonborrardelcarrito" onclick="borrarDelCarrito(${producto.idproducto})">BORRAR DEL CARRITO</button>`;
                                  
         contenedor.setAttribute('class',"productoListado");
@@ -125,12 +127,48 @@ function agregarAlCarrito(ordenElemento) {
 
             existente.cantidad = nuevaCantidad;
             existente.precio = nuevoPrecio;
-            document.getElementById("cantidad"+existente.idproducto).innerHTML= "CANTIDAD: "+nuevaCantidad;
+            document.getElementById("cantidad"+existente.idproducto).innerHTML= nuevaCantidad;
             document.getElementById("precio"+existente.idproducto).innerHTML= "PRECIO: "+nuevoPrecio;
         }     
     } 
     else {
         document.getElementById("totalcarrito").innerHTML = 0;
+    }
+}
+function modificarCarrito(nuevaCantidad,id,operacion){
+    let existente = carrito.find((el) => el.idproducto == id)
+    existente.cantidad = nuevaCantidad;
+    document.getElementById("cantidad"+existente.idproducto).innerHTML= nuevaCantidad;
+
+    let precio = productosPublicados[id-1].precio;
+    let nuevoSubtotalProducto = nuevaCantidad * precio;
+    existente.precio = nuevoSubtotalProducto;
+    document.getElementById("precio"+existente.idproducto).innerHTML= "PRECIO: "+nuevoSubtotalProducto;
+
+    if (operacion == "suma"){
+        let actualSubTotal = parseInt(document.getElementById("totalcarrito").innerHTML);
+        let nuevoSubTotal = actualSubTotal + precio;
+        document.getElementById("totalcarrito").innerHTML = nuevoSubTotal;
+    }
+    else {
+        let actualSubTotal = parseInt(document.getElementById("totalcarrito").innerHTML);
+        let nuevoSubTotal = actualSubTotal - precio;
+        document.getElementById("totalcarrito").innerHTML = nuevoSubTotal;
+    }
+}
+function sumarUnoCarrito(id){
+    let cantidadActual = parseInt(document.getElementById("cantidad"+id).innerHTML);
+    let nuevaCantidad = cantidadActual + 1;
+    modificarCarrito(nuevaCantidad,id,"suma");
+}
+function restarUnoCarrito(id){
+    let cantidadActual = parseInt(document.getElementById("cantidad"+id).innerHTML);
+    let nuevaCantidad = cantidadActual - 1;
+    if (nuevaCantidad != 0){
+        modificarCarrito(nuevaCantidad,id,"resta");
+    }
+    else {
+        borrarDelCarrito(id);
     }
 }
 //Boton Borrar Carrito
