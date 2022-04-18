@@ -24,13 +24,29 @@ function renderizarArray(array){
                                  <h4> ${producto.nomproducto} </h4>
                                  <p class="precio"> PRECIO: ${producto.precio}</p>
                                  <div class="row">
-                                    <div class="col"><button class="botoncarrito" onclick="botonRestarUno(${producto.idproducto})">-</button></div>
+                                    <div class="col"><button class="botoncarrito" id="botonRestarUno${producto.idproducto}">-</button></div>
                                     <div class="col"><p class="mostradorCantidad" id="mostradorCantidad"> 0 </p></div>
-                                    <div class="col"><button type="button" class="botoncarrito" onclick="botonSumarUno(${producto.idproducto})">+</button></div>
+                                    <div class="col"><button type="button" class="botoncarrito" id="botonSumarUno${producto.idproducto}">+</button></div>
                                  </div>
-                                 <button class="botonsumarcarrito" onclick="agregarAlCarrito(${producto.idproducto})">AGREGAR AL CARRITO</button>`;
+                                 <button class="botonsumarcarrito" id="agregarAlCarrito${producto.idproducto}">AGREGAR AL CARRITO</button>`;
         contenedor.setAttribute('class',"col-md-3 productosmenu");
         elementopadre.appendChild(contenedor);
+
+        const botonSumar = document.getElementById(`botonSumarUno${producto.idproducto}`);
+        const botonRestar = document.getElementById(`botonRestarUno${producto.idproducto}`);
+        const botonAgregar = document.getElementById(`agregarAlCarrito${producto.idproducto}`);
+
+        botonSumar.addEventListener('click', () => {
+            botonSumarUno(producto.idproducto)
+        })
+
+        botonRestar.addEventListener('click', () =>{
+            botonRestarUno(producto.idproducto)
+        })
+
+        botonAgregar.addEventListener('click', ()=>{
+            agregarAlCarrito(producto.idproducto)
+        })
     })
 }
 //Solamente muestro los productos que posean el atributo publicado igual a true
@@ -45,16 +61,40 @@ function renderizarCarrito(producto){
         contenedor.innerHTML =  `
                                  <h5 class="nomcarrito"> ${nombreprod} </h5>
                                  <p class="infocarrito preciocarrito" id="precio${producto.idproducto}"> PRECIO: ${producto.precio}</p>
-                                 <button class="botoncarritodetalle" onclick="restarUnoCarrito(${producto.idproducto})">-</button></div>
+                                 <button class="botoncarritodetalle" id="restarUnoCarrito${producto.idproducto}">-</button></div>
                                  <p class="mostradorCantidaddetalle" id="cantidad${producto.idproducto}"> ${producto.cantidad} </p></div>
-                                 <button type="button" class="botoncarritodetalle" onclick="sumarUnoCarrito(${producto.idproducto})">+</button></div>
-                                 <button class="botonborrardelcarrito" onclick="borrarDelCarrito(${producto.idproducto})">BORRAR DEL CARRITO</button>`;
+                                 <button type="button" class="botoncarritodetalle" id="sumarUnoCarrito${producto.idproducto}">+</button></div>
+                                 <button class="botonborrardelcarrito" id="borrarDelCarrito${producto.idproducto}">BORRAR DEL CARRITO</button>`;
                                  
         contenedor.setAttribute('class',"productoListado");
         contenedor.setAttribute('id',"productoListado"+producto.idproducto);
         elementopadreCarrito.appendChild(contenedor);
-}
 
+        const botonSumaCarrito = document.getElementById(`sumarUnoCarrito${producto.idproducto}`);
+        const botonRestarCarrito = document.getElementById(`restarUnoCarrito${producto.idproducto}`);
+        const botonBorrardelCarrito = document.getElementById(`borrarDelCarrito${producto.idproducto}`);
+
+        botonSumaCarrito.addEventListener('click', () => {
+            sumarUnoCarrito(producto.idproducto)
+        })
+
+        botonRestarCarrito.addEventListener('click', () =>{
+            restarUnoCarrito(producto.idproducto)
+        })
+
+        botonBorrardelCarrito.addEventListener('click', ()=>{
+            borrarDelCarrito(producto.idproducto)
+        })
+}
+//Declaro los eventos de los botones restantes
+const botonBorrar = document.getElementById("borrarCarrito");
+botonBorrar.addEventListener("click",()=>{
+    borrarCarrito()
+})
+const comprarCarrito = document.getElementById("comprar");
+botonBorrar.addEventListener("click",()=>{
+    comprar()
+})
 // MODIFICAMOS ELEMENTOS HTML DE LA PÁGINA TIENDA
 //Aumentamos "+1" cada vez que se presiona el botón "+"
 function sumarUno(cantidadActual) {
