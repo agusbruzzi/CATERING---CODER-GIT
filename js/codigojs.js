@@ -130,8 +130,29 @@ function ProductoCarrito (idproducto, cantidad, precio) {
     this.cantidad = cantidad;
     this.precio = precio;
 }
+//Para almacenar los productos agregados al carrito usaremos la siguiente funcion
+const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+
+//Vamos a recuperar del Storage el carrito
+let carrito = [];
+let carritoEnLS = JSON.parse(localStorage.getItem("listaCarrito"));
+//Verificamos si existe algun carrito en el local storage
+if (carritoEnLS) {
+    //En este caso si habría, por lo que modifico el DOM y cargo en pantalla el carrito almacenado
+    carrito = carritoEnLS;
+    let nuevoSubTotal = localStorage.getItem("totalcarrito");
+    document.getElementById("totalcarrito").innerHTML = nuevoSubTotal;
+    for (producto of carrito) {
+        renderizarCarrito(producto);
+    }
+} else {
+    //En este caso no habrìa nngùn carrito almacenado asì que procedo a cargar en el 
+    //storage el carrito y el total del carrito con valores predeterminados
+    guardarLocal("listaCarrito", JSON.stringify(carrito));
+    guardarLocal("totalcarrito",0);
+}
+
 // Boton Agregar al Carrito
-const carrito = [];
 function agregarAlCarrito(ordenElemento) {
     let cantidades = document.getElementsByClassName("mostradorCantidad");
     let cantidadActual = parseInt(cantidades[ordenElemento-1].innerHTML);
@@ -151,6 +172,17 @@ function agregarAlCarrito(ordenElemento) {
             var productoAgregado = new ProductoCarrito (ordenElemento, cantidadActual,preSubTotal);
             carrito.push(productoAgregado);
             renderizarCarrito(productoAgregado);
+
+            //Almacenamos en el storage
+            //Recuperamos el carrito
+            let almacenadoEnCarrito = JSON.parse(localStorage.getItem("listaCarrito"));
+            //Le agregamos el nuevo producto
+            almacenadoEnCarrito.push(productoAgregado);
+            //Borramos lo almacenado para guardar nuevamente el array pero actualizado
+            localStorage.removeItem("listaCarrito");
+            guardarLocal("listaCarrito",JSON.stringify(almacenadoEnCarrito));
+            //Guardamos el valor del total del carrito
+            guardarLocal("totalcarrito",nuevoSubtotal);
         }
         else {
             //En este caso el cliente solo estaría modificando la cantidad que quiere de cierto producto
@@ -169,10 +201,25 @@ function agregarAlCarrito(ordenElemento) {
             existente.precio = nuevoPrecio;
             document.getElementById("cantidad"+existente.idproducto).innerHTML= nuevaCantidad;
             document.getElementById("precio"+existente.idproducto).innerHTML= "PRECIO: "+nuevoPrecio;
-        }     
+
+            //Almacenamos en el storage
+            //Recuperamos el carrito
+            let almacenadoEnCarrito = JSON.parse(localStorage.getItem("listaCarrito"));
+            //Buscamos el producto que se modificó y realizamos los cambios
+            let almacenado = almacenadoEnCarrito.find((el)=>el.idproducto == ordenElemento);
+            almacenado.cantidad = nuevaCantidad;
+            almacenado.precio = nuevoPrecio;
+            //Borramos lo almacenado para guardar nuevamente el array pero actualizado
+            localStorage.removeItem("listaCarrito");
+            guardarLocal("listaCarrito",JSON.stringify(almacenadoEnCarrito));
+            //Guardamos el valor del total del carrito
+            localStorage.removeItem("totalcarrito");
+            guardarLocal("totalcarrito",nuevoSubtotal);
+            }     
     } 
     else {
         document.getElementById("totalcarrito").innerHTML = 0;
+        guardarLocal("totalcarrito",0);
     }
 }
 function modificarCarrito(nuevaCantidad,id,operacion){
@@ -185,15 +232,32 @@ function modificarCarrito(nuevaCantidad,id,operacion){
     existente.precio = nuevoSubtotalProducto;
     document.getElementById("precio"+existente.idproducto).innerHTML= "PRECIO: "+nuevoSubtotalProducto;
 
+    //Almacenamos en el storage
+    //Recuperamos el carrito
+    let almacenadoEnCarrito = JSON.parse(localStorage.getItem("listaCarrito"));
+    //Buscamos el producto que se modificó y realizamos los cambios
+    let almacenado = almacenadoEnCarrito.find((el)=>el.idproducto == id);
+    almacenado.cantidad = nuevaCantidad;
+    almacenado.precio = nuevoSubtotalProducto;
+    //Borramos lo almacenado para guardar nuevamente el array pero actualizado
+    localStorage.removeItem("listaCarrito");
+    guardarLocal("listaCarrito",JSON.stringify(almacenadoEnCarrito));
+
     if (operacion == "suma"){
         let actualSubTotal = parseInt(document.getElementById("totalcarrito").innerHTML);
         let nuevoSubTotal = actualSubTotal + precio;
         document.getElementById("totalcarrito").innerHTML = nuevoSubTotal;
+        //Almaceno en Storage
+        localStorage.removeItem("totalcarrito");
+        guardarLocal("totalcarrito",nuevoSubTotal);
     }
     else {
         let actualSubTotal = parseInt(document.getElementById("totalcarrito").innerHTML);
         let nuevoSubTotal = actualSubTotal - precio;
         document.getElementById("totalcarrito").innerHTML = nuevoSubTotal;
+        //Almaceno en Storage
+        localStorage.removeItem("totalcarrito");
+        guardarLocal("totalcarrito",nuevoSubTotal);
     }
 }
 function sumarUnoCarrito(id){
@@ -223,6 +287,8 @@ function borrarCarrito(){
     for  (let i = 0; i<cantidadAborrar; i++){
         productosListados[0].remove();
     }
+    //Borramos todo lo almacenado en storage
+    localStorage.clear();
 }
 //Boton Borrar Producto del Carrito
 function borrarDelCarrito(idprod) {
@@ -232,10 +298,26 @@ function borrarDelCarrito(idprod) {
     let nuevoSubTotal = anteriorSubtotal - precioAdescontar;
     document.getElementById("totalcarrito").innerHTML = nuevoSubTotal;
 
-    indice = carrito.indexOf(existente);
+    let indice = carrito.indexOf(existente);
     carrito.splice(indice,1);
     let divEliminar = document.getElementById("productoListado"+existente.idproducto);
     divEliminar.remove();
+
+    //Almacenamos en Storage
+    localStorage.removeItem("totalcarrito");
+    guardarLocal("totalcarrito",nuevoSubTotal);
+    //Recuperamos el carrito
+    let almacenadoEnCarrito = JSON.parse(localStorage.getItem("listaCarrito"));
+    //Buscamos el producto que se modificó y realizamos los cambios
+    let almacenado = almacenadoEnCarrito.find((el)=>el.idproducto == idprod);
+    //Acá vuelvo a buscar el indice porque creo que no se almacenan en orden en el que ingresan los productos,
+    //así que el indice podría ser distinto que el que usamos arriba
+    let indiceST = almacenadoEnCarrito.indexOf(almacenado);
+    //Borramos el producto del carrito almacenado
+    almacenadoEnCarrito.splice(indiceST,1);
+    //Borramos lo almacenado para guardar nuevamente el array pero actualizado
+    localStorage.removeItem("listaCarrito");
+    guardarLocal("listaCarrito",JSON.stringify(almacenadoEnCarrito));
 }
 
 
