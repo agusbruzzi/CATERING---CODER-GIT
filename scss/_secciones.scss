@@ -130,8 +130,8 @@ ul {
     font-size: 15px;
     border: none;
     padding: 5px 10px;
-    width: 50%;
-    margin-top: 10px;
+    width: 90%;
+    margin-top: 0px;
     margin-bottom: 20px;
 }
 
@@ -146,5 +146,16 @@ ul {
     border: none;
     width: 20%;
     display: inline-block;
+}
+.botoncomprar{
+    background-color: $colo-rosa;
+    color: $color-blanco;
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    padding: 15px 20px;
+    width: 90%;
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
    

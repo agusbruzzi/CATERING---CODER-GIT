@@ -78,7 +78,9 @@ a {
   text-align: right;
   font-size: 25px;
   font-weight: 900;
-  display: inline-block; }
+  display: inline-block;
+  line-height: 2px;
+  width: 50%; }
 
 .mostradorCantidaddetalle {
   font-size: 15px;
@@ -198,8 +200,8 @@ ul {
   font-size: 15px;
   border: none;
   padding: 5px 10px;
-  width: 50%;
-  margin-top: 10px;
+  width: 90%;
+  margin-top: 0px;
   margin-bottom: 20px; }
 
 .mostradorCantidad {
@@ -213,6 +215,17 @@ ul {
   border: none;
   width: 20%;
   display: inline-block; }
+
+.botoncomprar {
+  background-color: #d3323d;
+  color: #f8f6f3;
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  padding: 15px 20px;
+  width: 90%;
+  margin-top: 0px;
+  margin-bottom: 20px; }
 
 /***********
 ANIMACIONES
