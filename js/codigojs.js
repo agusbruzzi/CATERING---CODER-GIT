@@ -332,7 +332,7 @@ function finalizarCarrito(){
     .then((value) => {
         switch (value) {
             case "catch":
-            swal("¡GRACIAS!", "TU COMPRA HA SIDO REALIZADA CON ÉXITO"., "success", {
+            swal("¡GRACIAS!", "TU COMPRA HA SIDO REALIZADA CON ÉXITO", "success", {
                 buttons: false,
               });
             borrarCarrito();
