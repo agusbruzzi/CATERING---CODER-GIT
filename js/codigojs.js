@@ -18,34 +18,35 @@ const productos = [
 const elementopadre = document.getElementById("listadoproductos");
 function renderizarArray(array){
     array.forEach((producto) => {
+        const {idproducto, nomproducto, precio, foto} = producto;
         let contenedor = document.createElement('div');
         contenedor.innerHTML =  `
-                                <img src="${producto.foto}" class="fototienda" >
-                                 <h4> ${producto.nomproducto} </h4>
-                                 <p class="precio"> PRECIO: ${producto.precio}</p>
+                                <img src="${foto}" class="fototienda" >
+                                 <h4> ${nomproducto} </h4>
+                                 <p class="precio"> PRECIO: ${precio}</p>
                                  <div class="row">
-                                    <div class="col"><button class="botoncarrito" id="botonRestarUno${producto.idproducto}">-</button></div>
+                                    <div class="col"><button class="botoncarrito" id="botonRestarUno${idproducto}">-</button></div>
                                     <div class="col"><p class="mostradorCantidad" id="mostradorCantidad"> 0 </p></div>
-                                    <div class="col"><button type="button" class="botoncarrito" id="botonSumarUno${producto.idproducto}">+</button></div>
+                                    <div class="col"><button type="button" class="botoncarrito" id="botonSumarUno${idproducto}">+</button></div>
                                  </div>
-                                 <button class="botonsumarcarrito" id="agregarAlCarrito${producto.idproducto}">AGREGAR AL CARRITO</button>`;
+                                 <button class="botonsumarcarrito" id="agregarAlCarrito${idproducto}">AGREGAR AL CARRITO</button>`;
         contenedor.setAttribute('class',"col-md-3 productosmenu");
         elementopadre.appendChild(contenedor);
 
-        const botonSumar = document.getElementById(`botonSumarUno${producto.idproducto}`);
-        const botonRestar = document.getElementById(`botonRestarUno${producto.idproducto}`);
-        const botonAgregar = document.getElementById(`agregarAlCarrito${producto.idproducto}`);
+        const botonSumar = document.getElementById(`botonSumarUno${idproducto}`);
+        const botonRestar = document.getElementById(`botonRestarUno${idproducto}`);
+        const botonAgregar = document.getElementById(`agregarAlCarrito${idproducto}`);
 
         botonSumar.addEventListener('click', () => {
-            botonSumarUno(producto.idproducto)
+            botonSumarUno(idproducto)
         })
 
         botonRestar.addEventListener('click', () =>{
-            botonRestarUno(producto.idproducto)
+            botonRestarUno(idproducto)
         })
 
         botonAgregar.addEventListener('click', ()=>{
-            agregarAlCarrito(producto.idproducto)
+            agregarAlCarrito(idproducto)
         })
     })
 }
@@ -56,34 +57,35 @@ function renderizarArray(array){
 //Realizo lo mismo pero para los productos que se agregan al carrito y deben mostrarse a la izquierda en el html
 const elementopadreCarrito = document.getElementById("listadocarrito");
 function renderizarCarrito(producto){
+        const {idproducto, cantidad, precio} = producto;
         var nombreprod = productosPublicados[(producto.idproducto)-1].nomproducto; 
         let contenedor = document.createElement('div');
         contenedor.innerHTML =  `
                                  <h5 class="nomcarrito"> ${nombreprod} </h5>
-                                 <p class="infocarrito preciocarrito" id="precio${producto.idproducto}"> PRECIO: ${producto.precio}</p>
-                                 <button class="botoncarritodetalle" id="restarUnoCarrito${producto.idproducto}">-</button></div>
-                                 <p class="mostradorCantidaddetalle" id="cantidad${producto.idproducto}"> ${producto.cantidad} </p></div>
-                                 <button type="button" class="botoncarritodetalle" id="sumarUnoCarrito${producto.idproducto}">+</button></div>
-                                 <button class="botonborrardelcarrito" id="borrarDelCarrito${producto.idproducto}">BORRAR DEL CARRITO</button>`;
+                                 <p class="infocarrito preciocarrito" id="precio${idproducto}"> PRECIO: ${precio}</p>
+                                 <button class="botoncarritodetalle" id="restarUnoCarrito${idproducto}">-</button></div>
+                                 <p class="mostradorCantidaddetalle" id="cantidad${idproducto}"> ${cantidad} </p></div>
+                                 <button type="button" class="botoncarritodetalle" id="sumarUnoCarrito${idproducto}">+</button></div>
+                                 <button class="botonborrardelcarrito" id="borrarDelCarrito${idproducto}">BORRAR DEL CARRITO</button>`;
                                  
         contenedor.setAttribute('class',"productoListado");
-        contenedor.setAttribute('id',"productoListado"+producto.idproducto);
+        contenedor.setAttribute('id',"productoListado"+idproducto);
         elementopadreCarrito.appendChild(contenedor);
 
-        const botonSumaCarrito = document.getElementById(`sumarUnoCarrito${producto.idproducto}`);
-        const botonRestarCarrito = document.getElementById(`restarUnoCarrito${producto.idproducto}`);
-        const botonBorrardelCarrito = document.getElementById(`borrarDelCarrito${producto.idproducto}`);
+        const botonSumaCarrito = document.getElementById(`sumarUnoCarrito${idproducto}`);
+        const botonRestarCarrito = document.getElementById(`restarUnoCarrito${idproducto}`);
+        const botonBorrardelCarrito = document.getElementById(`borrarDelCarrito${idproducto}`);
 
         botonSumaCarrito.addEventListener('click', () => {
-            sumarUnoCarrito(producto.idproducto)
+            sumarUnoCarrito(idproducto)
         })
 
         botonRestarCarrito.addEventListener('click', () =>{
-            restarUnoCarrito(producto.idproducto)
+            restarUnoCarrito(idproducto)
         })
 
         botonBorrardelCarrito.addEventListener('click', ()=>{
-            borrarDelCarrito(producto.idproducto)
+            borrarDelCarrito(idproducto)
         })
 }
 //Declaro los eventos de los botones restantes
@@ -91,15 +93,13 @@ const botonBorrar = document.getElementById("borrarCarrito");
 botonBorrar.addEventListener("click",()=>{
     borrarCarrito()
 })
-const comprarCarrito = document.getElementById("comprar");
-botonBorrar.addEventListener("click",()=>{
-    comprar()
-})
+
 // MODIFICAMOS ELEMENTOS HTML DE LA PÁGINA TIENDA
 //Aumentamos "+1" cada vez que se presiona el botón "+"
 function sumarUno(cantidadActual) {
     var numCantidad = parseInt(cantidadActual);
-    var proxCantidad= numCantidad + 1;
+    numCantidad++;
+    var proxCantidad= numCantidad;
     return proxCantidad;
 }
 function botonSumarUno(ordenElemento) {
@@ -262,18 +262,15 @@ function modificarCarrito(nuevaCantidad,id,operacion){
 }
 function sumarUnoCarrito(id){
     let cantidadActual = parseInt(document.getElementById("cantidad"+id).innerHTML);
-    let nuevaCantidad = cantidadActual + 1;
+    cantidadActual++;
+    let nuevaCantidad = cantidadActual;
     modificarCarrito(nuevaCantidad,id,"suma");
 }
 function restarUnoCarrito(id){
     let cantidadActual = parseInt(document.getElementById("cantidad"+id).innerHTML);
     let nuevaCantidad = cantidadActual - 1;
-    if (nuevaCantidad != 0){
-        modificarCarrito(nuevaCantidad,id,"resta");
-    }
-    else {
-        borrarDelCarrito(id);
-    }
+    nuevaCantidad != 0 ? modificarCarrito(nuevaCantidad,id,"resta") : borrarDelCarrito(id);
+    
 }
 //Boton Borrar Carrito
 function borrarCarrito(){
@@ -320,6 +317,38 @@ function borrarDelCarrito(idprod) {
     guardarLocal("listaCarrito",JSON.stringify(almacenadoEnCarrito));
 }
 
+//Agregamos librerias
+//Elegí la siguiente librería ya que generamos funcionalidad al botón "comprar"
+function finalizarCarrito(){
+    swal("¿DESEA FINALIZAR LA COMPRA?","","info", {
+        buttons: {
+        cancel: "ELEGIR MÁS PRODUCTOS", 
+        catch: {
+            text: "FINALIZAR COMPRA",
+            value: "catch",
+            },
+        },
+    })
+    .then((value) => {
+        switch (value) {
+            case "catch":
+            swal("¡GRACIAS!", "TU COMPRA HA SIDO REALIZADA CON ÉXITO"., "success", {
+                buttons: false,
+              });
+            borrarCarrito();
+            break; }});
+        }
+function carritoVacioaviso(){
+    swal("Debe agregar productos a su carrito para continuar.","","warning", {
+        dangerMode: true,
+    });
+}
+const botonComprar = document.getElementById("comprar");
+botonComprar.addEventListener('click', () => {
+    carrito.length === 0 ? carritoVacioaviso() : finalizarCarrito() ;
+})
+
+            
 
 
 

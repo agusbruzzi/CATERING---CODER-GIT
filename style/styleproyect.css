@@ -7,6 +7,8 @@ TEXTOS
 ************/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Oswald:wght@300&display=swap");
 @import url("animate.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Oswald:wght@300&display=swap");
+@import url("animate.css");
 h1 {
   padding: 20px 100px;
   text-align: center;
@@ -285,6 +287,39 @@ ANIMACIONES
 .btn-animated {
   animation: moveInBottom 5s ease-out;
   animation-fill-mode: backwards; }
+
+.swal-overlay {
+  background-color: rgba(237, 254, 250, 0.749); }
+
+.swal-modal {
+  background-color: white;
+  border: 1px solid black; }
+
+.swal-text {
+  font-size: 18px;
+  color: black;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  font-weight: 900; }
+
+.swal-title {
+  font-size: 25px;
+  color: black;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  font-weight: 900; }
+
+.swal-button--catch {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: #b2391b;
+  font-size: 15px;
+  border: 1px solid #b2391b;
+  color: white; }
+
+.swal-button:hover {
+  background-color: #ffc719;
+  color: black; }
 
 /***********
 IMAGENES

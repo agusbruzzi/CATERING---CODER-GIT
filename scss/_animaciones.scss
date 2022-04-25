@@ -1,6 +1,8 @@
 /***********
 ANIMACIONES
 ************/
+@import "variables";
+
 @keyframes moveInBottom {
     0% {
         opacity: 0;
@@ -76,3 +78,39 @@ ANIMACIONES
        animation-fill-mode: backwards;
    }
 
+   .swal-overlay {
+    background-color: rgba(237, 254, 250, 0.749);
+  }
+
+  .swal-modal {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .swal-text {
+      font-size: 18px;
+      color: black;
+      font-family: $fuente-dos;
+      text-align: center;
+      font-weight: 900;
+  }
+  .swal-title {
+    font-size: 25px;
+      color: black;
+      font-family: $fuente-dos;
+      text-align: center;
+      font-weight: 900;
+  }
+  .swal-button--catch {
+    padding: 7px 19px;
+    border-radius: 2px;
+    background-color: $color-rojo-oscuro;
+    font-size: 15px;
+    border: 1px solid $color-rojo-oscuro;
+    color: white;}
+
+    .swal-button:hover {
+        background-color:$color-amarillo;
+        color: black;
+    }
+  
