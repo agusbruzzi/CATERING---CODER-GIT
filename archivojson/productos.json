@@ -1,0 +1,9 @@
+[
+    {"idproducto": 1, "nomproducto": "LASAGNA BOLOGNESA CONGELADA", "precio": 920, "foto": "../assets/img/lasagna.jpg" ,"publicado": true },
+    {"idproducto": 2, "nomproducto": "ÑOQUIS CASEROS CONGELADOS", "precio": 820, "foto": "../assets/img/ñoquis.jpg" , "publicado": true },
+    {"idproducto": 3, "nomproducto": "PICADA GRANDE - 6 PICAN Ó 4 CENAN", "precio": 3600, "foto": "../assets/img/picada.jpg" , "publicado": true },
+    {"idproducto": 4, "nomproducto": "SEMANA LABORAL - 5 COMIDAS", "precio": 4850, "foto": "../assets/img/combo5.jpg" , "publicado": true },
+    {"idproducto": 5, "nomproducto": "SEMANA LIGHT - CUIDATE SIN ESFUERZO!!", "precio": 4800, "foto": "../assets/img/combolight.jpg" , "publicado": true },
+    {"idproducto": 6, "nomproducto": "BIFES A LA CRIOLLA - PARA DOS PERSONAS", "precio": 1200, "foto": "../assets/img/bifes.jpg" , "publicado": true }
+    
+]

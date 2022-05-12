@@ -6,16 +6,23 @@ function Producto (id, nombre, precio, foto, estado) {
     this.foto = foto;
     this.publicado = estado;
 }
-const productos = [
-    {idproducto: 1, nomproducto: "LASAGNA BOLOGNESA CONGELADA", precio: 920, foto: "../assets/img/lasagna.jpg" ,publicado: true },
-    {idproducto: 2, nomproducto: "ÑOQUIS CASEROS CONGELADOS", precio: 820, foto: "../assets/img/ñoquis.jpg" , publicado: true },
-    {idproducto: 3, nomproducto: "PICADA GRANDE - 6 PICAN Ó 4 CENAN", precio: 3600, foto: "../assets/img/picada.jpg" , publicado: true },
-    {idproducto: 4, nomproducto: "SEMANA LABORAL - 5 COMIDAS", precio: 4850, foto: "../assets/img/combo5.jpg" , publicado: true },
-    {idproducto: 5, nomproducto: "SEMANA LIGHT - CUIDATE SIN ESFUERZO!!", precio: 4800, foto: "../assets/img/combolight.jpg" , publicado: true },
-    {idproducto: 6, nomproducto: "BIFES A LA CRIOLLA - PARA DOS PERSONAS", precio: 1200, foto: "../assets/img/bifes.jpg" , publicado: true },
-    
-]
+
+//Los productos se encuentran cargados en un archivo .json
+
+const productosPublicados = [];
 const elementopadre = document.getElementById("listadoproductos");
+//Se utilizó un servidor local debido a que Google Chrome no leía el archivo json local por cuestiones de seguridad
+fetch ('http://127.0.0.1:8887/productos.json')
+    .then ((resp) => resp.json())
+    .then ((data) => {
+    //Solamente muestro los productos que posean el atributo publicado igual a true
+    const prodPub = data.filter((el) => el.publicado == true);
+    prodPub.forEach((prod) => {
+        productosPublicados.push(prod);
+    }) 
+    renderizarArray(prodPub);
+    })
+
 function renderizarArray(array){
     array.forEach((producto) => {
         const {idproducto, nomproducto, precio, foto} = producto;
@@ -50,18 +57,13 @@ function renderizarArray(array){
         })
     })
 }
-//Solamente muestro los productos que posean el atributo publicado igual a true
- const productosPublicados = productos.filter((el) => el.publicado == true);
- renderizarArray(productosPublicados);
-
 //Realizo lo mismo pero para los productos que se agregan al carrito y deben mostrarse a la izquierda en el html
 const elementopadreCarrito = document.getElementById("listadocarrito");
 function renderizarCarrito(producto){
-        const {idproducto, cantidad, precio} = producto;
-        var nombreprod = productosPublicados[(producto.idproducto)-1].nomproducto; 
+        const {idproducto, nombreproducto, cantidad, precio} = producto;
         let contenedor = document.createElement('div');
         contenedor.innerHTML =  `
-                                 <h5 class="nomcarrito"> ${nombreprod} </h5>
+                                 <h5 class="nomcarrito"> ${nombreproducto} </h5>
                                  <p class="infocarrito preciocarrito" id="precio${idproducto}"> PRECIO: ${precio}</p>
                                  <button class="botoncarritodetalle" id="restarUnoCarrito${idproducto}">-</button></div>
                                  <p class="mostradorCantidaddetalle" id="cantidad${idproducto}"> ${cantidad} </p></div>
@@ -125,8 +127,9 @@ function botonRestarUno(ordenElemento) {
 }
 // Ahora gestionamos el carrito
 //Creo el objeto carrito
-function ProductoCarrito (idproducto, cantidad, precio) {
+function ProductoCarrito (idproducto, nomprod, cantidad, precio) {
     this.idproducto = idproducto;
+    this.nombreproducto = nomprod;
     this.cantidad = cantidad;
     this.precio = precio;
 }
@@ -146,7 +149,7 @@ if (carritoEnLS) {
         renderizarCarrito(producto);
     }
 } else {
-    //En este caso no habrìa nngùn carrito almacenado asì que procedo a cargar en el 
+    //En este caso no habrìa ningùn carrito almacenado asì que procedo a cargar en el 
     //storage el carrito y el total del carrito con valores predeterminados
     guardarLocal("listaCarrito", JSON.stringify(carrito));
     guardarLocal("totalcarrito",0);
@@ -162,6 +165,7 @@ function agregarAlCarrito(ordenElemento) {
         //mismo producto.
         if (carrito.some((el) => el.idproducto == ordenElemento) == false ) {
             //En este caso es un producto nuevo asi que creamos el objeto y lo pusheamos al array carrito
+            let nombre = productosPublicados[ordenElemento-1].nomproducto;
             let precio = productosPublicados[ordenElemento-1].precio;
             let preSubTotal = cantidadActual * precio;
             let anteriorSubtotal = parseInt(document.getElementById("totalcarrito").innerHTML);
@@ -169,7 +173,7 @@ function agregarAlCarrito(ordenElemento) {
             document.getElementById("totalcarrito").innerHTML = nuevoSubtotal;
             document.getElementsByClassName("mostradorCantidad")[ordenElemento-1].innerHTML = 0;
 
-            var productoAgregado = new ProductoCarrito (ordenElemento, cantidadActual,preSubTotal);
+            var productoAgregado = new ProductoCarrito (ordenElemento, nombre, cantidadActual,preSubTotal);
             carrito.push(productoAgregado);
             renderizarCarrito(productoAgregado);
 
@@ -222,6 +226,7 @@ function agregarAlCarrito(ordenElemento) {
         guardarLocal("totalcarrito",0);
     }
 }
+//La siguiente función se utiliza para modificar los productos que ya se encuentran almacenados en el carrito
 function modificarCarrito(nuevaCantidad,id,operacion){
     let existente = carrito.find((el) => el.idproducto == id)
     existente.cantidad = nuevaCantidad;
@@ -270,7 +275,6 @@ function restarUnoCarrito(id){
     let cantidadActual = parseInt(document.getElementById("cantidad"+id).innerHTML);
     let nuevaCantidad = cantidadActual - 1;
     nuevaCantidad != 0 ? modificarCarrito(nuevaCantidad,id,"resta") : borrarDelCarrito(id);
-    
 }
 //Boton Borrar Carrito
 function borrarCarrito(){
